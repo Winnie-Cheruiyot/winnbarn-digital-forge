@@ -53,52 +53,57 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
+      <header className="border-b glass sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-4 hover-scale">
               <img 
                 src="/lovable-uploads/3868cd00-530c-4e77-a86e-8771789a7c0b.png" 
                 alt="Winnbarn Innovative Solutions" 
-                className="h-12 w-auto"
+                className="h-12 w-auto animate-float"
               />
               <div>
-                <h1 className="text-xl font-bold text-primary">Winnbarn Innovative Solutions</h1>
+                <h1 className="text-xl font-bold gradient-text">Winnbarn Innovative Solutions</h1>
                 <p className="text-sm text-muted-foreground">Technology & Digital Solutions</p>
               </div>
             </div>
             <div className="hidden md:flex space-x-6">
-              <a href="#services" className="text-foreground hover:text-primary transition-colors">Services</a>
-              <a href="#projects" className="text-foreground hover:text-primary transition-colors">Projects</a>
-              <a href="#contact" className="text-foreground hover:text-primary transition-colors">Contact</a>
+              <a href="#services" className="text-foreground hover:text-primary transition-smooth font-medium">Services</a>
+              <a href="#projects" className="text-foreground hover:text-primary transition-smooth font-medium">Projects</a>
+              <a href="#contact" className="text-foreground hover:text-primary transition-smooth font-medium">Contact</a>
             </div>
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-b from-background to-muted/20">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-6xl font-bold mb-6 text-foreground">
+      <section className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0 gradient-hero opacity-90"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/5 to-background/20"></div>
+        <div className="relative container mx-auto px-4 text-center">
+          <h2 className="text-5xl md:text-7xl font-bold mb-6 text-white animate-float">
             Innovative Digital Solutions
           </h2>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed">
             Empowering businesses through technology, freelancing, and remote work solutions in Turkana County and beyond
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Badge variant="secondary" className="px-4 py-2 text-base">
-              <Code className="h-4 w-4 mr-2" />
+          <div className="flex flex-wrap justify-center gap-6 mb-8">
+            <Badge variant="secondary" className="px-6 py-3 text-base glass text-white border-white/20 hover-glow hover-scale">
+              <Code className="h-5 w-5 mr-3" />
               Web Development
             </Badge>
-            <Badge variant="secondary" className="px-4 py-2 text-base">
-              <Users className="h-4 w-4 mr-2" />
+            <Badge variant="secondary" className="px-6 py-3 text-base glass text-white border-white/20 hover-glow hover-scale">
+              <Users className="h-5 w-5 mr-3" />
               Remote Work
             </Badge>
-            <Badge variant="secondary" className="px-4 py-2 text-base">
-              <Laptop className="h-4 w-4 mr-2" />
+            <Badge variant="secondary" className="px-6 py-3 text-base glass text-white border-white/20 hover-glow hover-scale">
+              <Laptop className="h-5 w-5 mr-3" />
               Tech Hardware
             </Badge>
           </div>
+          <Button size="lg" className="gradient-primary text-white px-8 py-4 text-lg hover-scale animate-pulse-glow border-0">
+            Start Your Project
+          </Button>
         </div>
       </section>
 
@@ -114,19 +119,19 @@ const Index = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => (
-              <Card key={index} className="h-full hover:shadow-lg transition-shadow">
+              <Card key={index} className="h-full gradient-card shadow-card hover-lift hover-glow border-0">
                 <CardHeader className="text-center">
-                  <div className="flex justify-center text-primary mb-4">
+                  <div className="flex justify-center text-primary mb-4 hover-scale">
                     {service.icon}
                   </div>
-                  <CardTitle className="text-xl">{service.title}</CardTitle>
-                  <CardDescription>{service.description}</CardDescription>
+                  <CardTitle className="text-xl gradient-text">{service.title}</CardTitle>
+                  <CardDescription className="text-muted-foreground/80">{service.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-2">
+                  <ul className="space-y-3">
                     {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center text-sm">
-                        <Star className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
+                      <li key={idx} className="flex items-center text-sm transition-smooth hover:text-primary">
+                        <Star className="h-4 w-4 text-primary mr-3 flex-shrink-0 hover-scale" />
                         {feature}
                       </li>
                     ))}
@@ -150,13 +155,13 @@ const Index = () => {
           
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {projects.map((project, index) => (
-              <Card key={index}>
+              <Card key={index} className="gradient-card shadow-card hover-lift hover-glow border-0">
                 <CardHeader>
                   <div className="flex items-center justify-between">
-                    <CardTitle className="text-xl">{project.title}</CardTitle>
-                    <Badge variant="outline">{project.type}</Badge>
+                    <CardTitle className="text-xl gradient-text">{project.title}</CardTitle>
+                    <Badge variant="outline" className="gradient-primary text-white border-0 hover-scale">{project.type}</Badge>
                   </div>
-                  <CardDescription>{project.description}</CardDescription>
+                  <CardDescription className="text-muted-foreground/80">{project.description}</CardDescription>
                 </CardHeader>
               </Card>
             ))}
@@ -220,35 +225,35 @@ const Index = () => {
           
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-3 gap-8">
-              <Card className="text-center">
+              <Card className="text-center gradient-card shadow-card hover-lift hover-glow border-0">
                 <CardHeader>
-                  <Phone className="h-8 w-8 text-primary mx-auto mb-4" />
-                  <CardTitle>Phone</CardTitle>
+                  <Phone className="h-8 w-8 text-primary mx-auto mb-4 hover-scale" />
+                  <CardTitle className="gradient-text">Phone</CardTitle>
                   <CardDescription>
-                    <a href="tel:+254737731566" className="text-primary hover:underline">
+                    <a href="tel:+254737731566" className="text-primary hover:text-primary/80 transition-smooth hover:underline font-medium">
                       +254 737 731 566
                     </a>
                   </CardDescription>
                 </CardHeader>
               </Card>
               
-              <Card className="text-center">
+              <Card className="text-center gradient-card shadow-card hover-lift hover-glow border-0">
                 <CardHeader>
-                  <Mail className="h-8 w-8 text-primary mx-auto mb-4" />
-                  <CardTitle>Email</CardTitle>
+                  <Mail className="h-8 w-8 text-primary mx-auto mb-4 hover-scale" />
+                  <CardTitle className="gradient-text">Email</CardTitle>
                   <CardDescription>
-                    <a href="mailto:winnbarn01@gmail.com" className="text-primary hover:underline">
+                    <a href="mailto:winnbarn01@gmail.com" className="text-primary hover:text-primary/80 transition-smooth hover:underline font-medium">
                       winnbarn01@gmail.com
                     </a>
                   </CardDescription>
                 </CardHeader>
               </Card>
               
-              <Card className="text-center">
+              <Card className="text-center gradient-card shadow-card hover-lift hover-glow border-0">
                 <CardHeader>
-                  <MapPin className="h-8 w-8 text-primary mx-auto mb-4" />
-                  <CardTitle>Location</CardTitle>
-                  <CardDescription>
+                  <MapPin className="h-8 w-8 text-primary mx-auto mb-4 hover-scale" />
+                  <CardTitle className="gradient-text">Location</CardTitle>
+                  <CardDescription className="font-medium">
                     Lodwar, Turkana County<br />Kenya
                   </CardDescription>
                 </CardHeader>
