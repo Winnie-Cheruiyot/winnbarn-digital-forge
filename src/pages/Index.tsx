@@ -80,6 +80,18 @@ const Index = () => {
 
   const projects = [
     {
+      title: "Winnbarn Portfolio Website",
+      description: "Modern responsive portfolio showcasing digital solutions and services",
+      type: "Website Development",
+      url: "https://winnbarnis.netlify.app/"
+    },
+    {
+      title: "ELSE Organic Store",
+      description: "Full-featured organic food e-commerce platform with shopping cart and product catalog",
+      type: "E-commerce",
+      url: "https://else-organic.netlify.app/"
+    },
+    {
       title: "Lodwar Vocational Training Centre",
       description: "Complete website development with modern design and functionality",
       type: "Website Development"
@@ -198,7 +210,7 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {projects.map((project, index) => (
               <Card key={index} className="gradient-card shadow-card hover-lift hover-glow border-0">
                 <CardHeader>
@@ -207,6 +219,23 @@ const Index = () => {
                     <Badge variant="outline" className="gradient-primary text-white border-0 hover-scale">{project.type}</Badge>
                   </div>
                   <CardDescription className="text-muted-foreground/80">{project.description}</CardDescription>
+                  {project.url && (
+                    <div className="mt-4">
+                      <Button 
+                        asChild
+                        variant="outline" 
+                        className="w-full hover-scale"
+                      >
+                        <a 
+                          href={project.url} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                        >
+                          View Demo
+                        </a>
+                      </Button>
+                    </div>
+                  )}
                 </CardHeader>
               </Card>
             ))}
