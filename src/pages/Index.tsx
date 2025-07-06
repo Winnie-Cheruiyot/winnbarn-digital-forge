@@ -80,6 +80,18 @@ const Index = () => {
 
   const projects = [
     {
+      title: "Lodwar Vocational Training Centre",
+      description: "Complete institutional website for LVTC with course information, facilities, and student portal",
+      type: "Website Development",
+      url: "https://lodwarvtc.netlify.app/"
+    },
+    {
+      title: "LVTC Transcript Management System",
+      description: "Advanced student transcript and performance analytics dashboard for academic management",
+      type: "Web Application",
+      url: "https://lvtc-transcript-system.netlify.app/"
+    },
+    {
       title: "Winnbarn Portfolio Website",
       description: "Modern responsive portfolio showcasing digital solutions and services",
       type: "Website Development",
@@ -90,16 +102,6 @@ const Index = () => {
       description: "Full-featured organic food e-commerce platform with shopping cart and product catalog",
       type: "E-commerce",
       url: "https://else-organic.netlify.app/"
-    },
-    {
-      title: "Lodwar Vocational Training Centre",
-      description: "Complete website development with modern design and functionality",
-      type: "Website Development"
-    },
-    {
-      title: "E-commerce Platform",
-      description: "Full-featured online store with payment integration",
-      type: "E-commerce"
     }
   ];
 
